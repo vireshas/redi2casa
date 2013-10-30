@@ -17,5 +17,5 @@ a = db.execute("update counters set b = b - 2  where KEY='a'")
 a.fetch {|i| puts i.to_hash.inspect}  
 
 I didnt want to use insert to create a new entry (we might hit read-modify-write issues). I was trying to execute raw cql queries.
-execute_cql_query seems likes one of the way. Creating a new entry is pending.  
+Found execute_cql_query, not sure though. Creating a new entry is pending.  
 
