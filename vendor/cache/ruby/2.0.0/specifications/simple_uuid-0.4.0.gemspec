@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
   s.licenses = ["Apache"]
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Simple_uuid", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.3"
+  s.rubygems_version = "2.0.6"
   s.summary = "Simple, scalable UUID generation."
 end
