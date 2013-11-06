@@ -1,6 +1,6 @@
 # Redi2casa
 
-TODO: Write a gem description
+Redis datastructures using Cassandra
 
 ## Installation
 
@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  require "redi2casa"
+  r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}
+
+# hincrby
+
+  Increment: r.hincrby "c", "e", 10
+  Decrement: r.hincrby "c", "e", -10
+
+# hgetall
+
+  r.hgetall "c"
 
 ## Contributing
 
