@@ -21,12 +21,12 @@ Or install it yourself as:
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}
 
-# hincrby
+#### hincrby
 
     Increment: r.hincrby "c", "e", 10
     Decrement: r.hincrby "c", "e", -10
 
-# hgetall
+#### hgetall
 
     r.hgetall "c"
 
