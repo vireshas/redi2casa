@@ -18,17 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-  require "redi2casa"
-  r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}
+    require "redi2casa"
+    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}
 
 # hincrby
 
-  Increment: r.hincrby "c", "e", 10
-  Decrement: r.hincrby "c", "e", -10
+    Increment: r.hincrby "c", "e", 10
+    Decrement: r.hincrby "c", "e", -10
 
 # hgetall
 
-  r.hgetall "c"
+    r.hgetall "c"
 
 ## Contributing
 
