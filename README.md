@@ -1,6 +1,5 @@
 <b>Creating a counters table</b>  
-create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_vali[default@keyspace1] create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';  
-
+create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';
 <b>Connect to db and use keyspace1</b>  
 db = CassandraCQL::Database.new('127.0.0.1:9160', {:keyspace => 'keyspace1'})  
 
