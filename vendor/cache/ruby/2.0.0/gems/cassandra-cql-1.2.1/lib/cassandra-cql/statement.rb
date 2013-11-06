@@ -72,6 +72,8 @@ module CassandraCQL
     def self.quote(obj, use_cql3=false)
       if obj.kind_of?(Array)
         obj.map { |member| quote(member, use_cql3) }.join(",")
+      elsif obj.kind_of?(String) and obj.match /^\{.*\}$/
+        obj
       elsif obj.kind_of?(String)
         "'" + obj + "'"
       elsif obj.kind_of?(BigDecimal) and (!use_cql3 or CASSANDRA_VERSION.to_f < 1.2)
@@ -90,9 +92,11 @@ module CassandraCQL
       end
     end
 
-    def self.cast_to_cql(obj)
+    def self.cast_to_cql(obj, use_cql3 = false)
       if obj.kind_of?(Array)
         obj.map { |member| cast_to_cql(member) }
+      elsif obj.kind_of?(Hash)
+        "{"+obj.map{ |key,val| "#{quote(cast_to_cql(key), use_cql3)}:#{quote(cast_to_cql(val), use_cql3)}" }.join(',')+"}"
       elsif obj.kind_of?(Numeric)
         obj
       elsif obj.kind_of?(Date)
