@@ -1,0 +1,42 @@
+have_func: checking for strlcpy() in string.h... -------------------- no
+
+"gcc -o conftest -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/i686-linux -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/local/rvm/rubies/ruby-1.9.3-p194/include  -D_FILE_OFFSET_BITS=64  -g -O2 -Wall -Werror conftest.c  -L. -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -L.  -rdynamic -Wl,-export-dynamic     '-Wl,-rpath,/../lib' -Wl,-R -Wl,/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/i686-linux -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/local/rvm/rubies/ruby-1.9.3-p194/include  -D_FILE_OFFSET_BITS=64  -g -O2 -Wall -Werror conftest.c  -L. -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -L.  -rdynamic -Wl,-export-dynamic     '-Wl,-rpath,/../lib' -Wl,-R -Wl,/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function 't':
+conftest.c:7:28: error: variable 'p' set but not used [-Werror=unused-but-set-variable]
+cc1: all warnings being treated as errors
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <string.h>
+4: 
+5: /*top*/
+6: int main() {return 0;}
+7: int t() { void ((*volatile p)()); p = (void ((*)()))strlcpy; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/i686-linux -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/usr/local/rvm/rubies/ruby-1.9.3-p194/include  -D_FILE_OFFSET_BITS=64  -g -O2 -Wall -Werror conftest.c  -L. -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.3-p194/lib -L.  -rdynamic -Wl,-export-dynamic     '-Wl,-rpath,/../lib' -Wl,-R -Wl,/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function 't':
+conftest.c:7:1: error: too few arguments to function 'strlcpy'
+/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/missing.h:198:20: note: declared here
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <string.h>
+4: 
+5: /*top*/
+6: int main() {return 0;}
+7: int t() { strlcpy(); return 0; }
+/* end */
+
+--------------------
+
