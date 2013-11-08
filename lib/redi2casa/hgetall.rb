@@ -1,5 +1,5 @@
 class Redi2casa
-  def hgetall key, type
+  def hgetall key, type = "counters"
     if type.to_s == "counters"
       response = @db_conn.execute("select * from counters where KEY='#{key}'")
       hsh = {}
