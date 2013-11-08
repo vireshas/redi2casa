@@ -30,7 +30,7 @@ Or install it yourself as:
 
     Increment: r.hincrby "c", "e", 10
     Decrement: r.hincrby "c", "e", -10
-    r.hget "c", "e", "counters"
+    r.hget "c", "e" or r.hget "c", "e", "counters"     #counters is the default type
 
 #### hset & hget
 
@@ -39,7 +39,7 @@ Or install it yourself as:
 
 #### hgetall
 
-    r.hgetall "c", "counters"
+    r.hgetall "c" or r.hgetall "c", "counters"     #counters is the default type
     r.hgetall "a", "sets"
 
 ## Contributing
