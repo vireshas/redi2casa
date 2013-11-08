@@ -6,7 +6,8 @@ Redis datastructures using Cassandra
 
 Add this line to your application's Gemfile:
 
-    gem 'redi2casa'
+    gem "cassandra-cql", :git => "git://github.com/vireshas/cassandra-cql.git"
+    gem "redi2casa", :git => "git://github.com/vireshas/redi2casa.git"
 
 And then execute:
 
