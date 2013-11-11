@@ -5,7 +5,7 @@ class Redi2casa
       hsh = {}
       response.fetch {|resp| entry = resp.to_hash; hsh[entry["column1"]] = entry["value"] }
       hsh
-    elsif type.to_s == "sets"
+    elsif type.to_s == "hash"
       resp = @db_conn.execute("select * from sets where namespace = ?", key).fetch
       resp.nil? ? nil : resp.to_hash['key']
     end
