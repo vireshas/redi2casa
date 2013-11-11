@@ -42,6 +42,22 @@ Or install it yourself as:
     r.hgetall "c" or r.hgetall "c", "counters"     #counters is the default type
     r.hgetall "a", "sets"
 
+
+#### lpush, ltrim, lpop, lrange
+
+    r.lpush "a", "hello"
+    r.lpush "a", "hello1"
+    r.lpush "a", "hello2"
+    r.lrange "a", 0, -1
+    r.lpop "a"
+    r.ltrim "a", 0, 1
+    
+#### rpush, rpop
+    
+    r.rpush "a", "hello3"
+    r.rpop "a"
+    r.lrange "a", 0, -1
+    
 ## Contributing
 
 1. Fork it
