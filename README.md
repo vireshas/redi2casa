@@ -26,10 +26,10 @@ Or install it yourself as:
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
 
-  You should keep one thing in mind while using hget with sets!, you should explicitly mention that you are using hget with sets  
+  You should keep one thing in mind while using hget with hash!, you should explicitly mention that you are using hget with hash  
   
     r.hset "a", "b", "hello_world"
-    r.hget "a", "b", "sets"  #the last parameter is needed for sets  
+    r.hget "a", "b", "hash"  #the last parameter is needed for hash  
     
   You can find more examples here: https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee  
 
