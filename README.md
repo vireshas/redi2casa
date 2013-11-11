@@ -24,40 +24,15 @@ Or install it yourself as:
 
 ### Now you can
     require "redi2casa"
-    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}
+    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
 
-#### hincrby & hget
-
-    Increment: r.hincrby "c", "e", 10
-    Decrement: r.hincrby "c", "e", -10
-    r.hget "c", "e" or r.hget "c", "e", "counters"     #counters is the default type
-
-#### hset & hget
-
+  You should keep one thing in mind while using hget with sets!, you should explicitly mention that you are using hget with sets  
+  
     r.hset "a", "b", "hello_world"
-    r.hget "a", "b", "sets"
-
-#### hgetall
-
-    r.hgetall "c" or r.hgetall "c", "counters"     #counters is the default type
-    r.hgetall "a", "sets"
-
-
-#### lpush, ltrim, lpop, lrange
-
-    r.lpush "a", "hello"
-    r.lpush "a", "hello1"
-    r.lpush "a", "hello2"
-    r.lrange "a", 0, -1
-    r.lpop "a"
-    r.ltrim "a", 0, 1
+    r.hget "a", "b", "sets"  #the last parameter is needed for sets  
     
-#### rpush, rpop
-    
-    r.rpush "a", "hello3"
-    r.rpop "a"
-    r.lrange "a", 0, -1
-    
+  You can find more examples here: https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee  
+
 ## Contributing
 
 1. Fork it
