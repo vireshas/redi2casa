@@ -30,7 +30,7 @@ Or install it yourself as:
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
 
-  You should keep one thing in mind while using hget with hash!, you should explicitly mention that you are using hget with hash  
+  You should be passing an extra param(hash) when you call hget to retrieve a hash    
   
     r.hset "a", "b", "hello_world"
     r.hget "a", "b", "hash"  #the last parameter is needed for hash  
