@@ -18,11 +18,15 @@ Or install it yourself as:
     $ gem install redi2casa
 
 ## Usage
-#### create these tables
+
+#### configuring cassandra
+
+    create namespace: CREATE KEYSPACE redi2casa WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
     cqlsh: create table sets(namespace text primary key, key map<text, text>);
     cassandra-cli: create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';
-
+    
 ### Now you can
+
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
 
