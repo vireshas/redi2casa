@@ -25,12 +25,14 @@ Or install it yourself as:
     cqlsh: create table sets(namespace text primary key, key map<text, text>);
     cassandra-cli: create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';
     
-### Now you can
+### And you are good to go
 
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
+    
+    Available:  [hset, hget, hincrby, lpush, ltrim, lpop, lrange, rpush, rpop]
 
-  You should be passing an extra param(hash) when you call hget to retrieve a hash    
+    You should be passing an extra param(hash) when you call hget to retrieve a hash    
   
     r.hset "a", "b", "hello_world"
     r.hget "a", "b", "hash"  #the last parameter is needed at the moment  
