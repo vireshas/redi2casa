@@ -22,11 +22,11 @@ Or install it yourself as:
 #### configuring cassandra  
 
     install cassandra 20x
-    create namespace: CREATE KEYSPACE redi2casa WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-    cqlsh: create table sets(namespace text primary key, key map<text, text>);
-    cassandra-cli: create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';
+    from the cloned location execute:
+    cqlsh -f cqlsh_cmds --debug
+    cassandra-cli -k redi2casa -f cassandra_cli_cmds
     
-### And you are good to go
+#### you're good to go
 
     require "redi2casa"
     r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
