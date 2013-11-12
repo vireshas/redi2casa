@@ -29,12 +29,11 @@ Or install it yourself as:
 #### you're good to go
 
     require "redi2casa"
-    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'keyspace1'}  
+    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'redi2casa'}  
     
     Available:  [hset, hget, hincrby, lpush, ltrim, lpop, lrange, rpush, rpop]
 
     You should be passing an extra param(hash) when you call hget to retrieve a hash    
-  
     r.hset "a", "b", "hello_world"
     r.hget "a", "b", "hash"  #the last parameter is needed at the moment  
     
