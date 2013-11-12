@@ -1,6 +1,8 @@
-# Redi2casa
+# Redi2casa <a href="http://badge.fury.io/rb/redi2casa"><img src="https://badge.fury.io/rb/redi2casa@2x.png" alt="Gem Version" height="18"></a>  
+  
 
-Redis datastructures using Cassandra
+Redis datastructures using Cassandra. 
+
 
 ## Installation
 
