@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Redi2casa by vireshas</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Redi2casa</h1>
+        <p>Provides subset of Redis functionalities using Cassandra</p>
+
+        <p class="view"><a href="https://github.com/vireshas/redi2casa">View the Project on GitHub <small>vireshas/redi2casa</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/vireshas/redi2casa/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/vireshas/redi2casa/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/vireshas/redi2casa">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="redi2casa-" class="anchor" href="#redi2casa-"><span class="octicon octicon-link"></span></a>Redi2casa <a href="http://badge.fury.io/rb/redi2casa"><img src="https://badge.fury.io/rb/redi2casa@2x.png" alt="Gem Version" height="18"></a>
+</h1>
+
+<p>Redis datastructures using Cassandra. </p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem "cassandra-cql", :git =&gt; "git://github.com/vireshas/cassandra-cql.git"
+gem "redi2casa", :git =&gt; "git://github.com/vireshas/redi2casa.git"
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle install
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install redi2casa
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h4>
+<a name="configuring-cassandra" class="anchor" href="#configuring-cassandra"><span class="octicon octicon-link"></span></a>configuring cassandra</h4>
+
+<pre><code>install cassandra 20x
+from the cloned location execute:
+cqlsh -f cqlsh_cmds --debug
+cassandra-cli -k redi2casa -f cassandra_cli_cmds
+</code></pre>
+
+<h4>
+<a name="youre-good-to-go" class="anchor" href="#youre-good-to-go"><span class="octicon octicon-link"></span></a>you're good to go</h4>
+
+<pre><code>require "redi2casa"
+r = Redi2casa.new "127.0.0.1:9160", {:keyspace =&gt; 'redi2casa'}  
+
+Available:  [hset, hget, hincrby, lpush, ltrim, lpop, lrange, rpush, rpop]
+
+You should be passing an extra param(hash) when you call hget to retrieve a hash    
+r.hset "a", "b", "hello_world"
+r.hget "a", "b", "hash"  #the last parameter is needed at the moment  
+</code></pre>
+
+<p>You can find more examples here: <a href="https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee">https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee</a>  </p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/vireshas">vireshas</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
