@@ -33,7 +33,7 @@ Or install it yourself as:
   You should be passing an extra param(hash) when you call hget to retrieve a hash    
   
     r.hset "a", "b", "hello_world"
-    r.hget "a", "b", "hash"  #the last parameter is needed for hash  
+    r.hget "a", "b", "hash"  #the last parameter is needed at the moment  
     
   You can find more examples here: https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee  
 
