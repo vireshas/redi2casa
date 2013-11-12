@@ -1,4 +1,5 @@
 class Redi2casa
+  #has a read modify write problem
   def lpop namespace
     resp = @db_conn.execute("select values from lists where namespace='#{namespace}'")
     values = []
