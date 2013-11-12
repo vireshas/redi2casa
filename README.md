@@ -19,8 +19,9 @@ Or install it yourself as:
 
 ## Usage
 
-#### configuring cassandra
+#### configuring cassandra  
 
+    install cassandra 20x
     create namespace: CREATE KEYSPACE redi2casa WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
     cqlsh: create table sets(namespace text primary key, key map<text, text>);
     cassandra-cli: create column family counters with column_type = 'Standard' and comparator = 'UTF8Type' and default_validation_class = 'CounterColumnType' and key_validation_class = 'UTF8Type';
