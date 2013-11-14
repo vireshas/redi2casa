@@ -4,8 +4,8 @@ require "cql"
 Gem.find_files("redi2casa/*.rb").each { |path| require path }
 
 class Redi2casa
-  def initialize(host, keyspace)
-    @db_conn =  Cql::Client.connect(host)
+  def initialize(hosts, keyspace)
+    @db_conn =  Cql::Client.connect(:hosts => hosts)
     @db_conn.use(keyspace)
   end
 
