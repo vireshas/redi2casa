@@ -8,7 +8,6 @@ Redis datastructures using Cassandra.
 
 Add this line to your application's Gemfile:
 
-    gem "cassandra-cql", :git => "git://github.com/vireshas/cassandra-cql.git"
     gem "redi2casa", :git => "git://github.com/vireshas/redi2casa.git"
 
 And then execute:
@@ -32,7 +31,7 @@ Or install it yourself as:
 #### you're good to go
 
     require "redi2casa"
-    r = Redi2casa.new "127.0.0.1:9160", {:keyspace => 'redi2casa'}  
+    r = Redi2casa.new ["localhost"], 'redi2casa'    
     
     Available:  [hset, hget, hincrby, lpush, ltrim, lpop, lrange, rpush, rpop]
 
