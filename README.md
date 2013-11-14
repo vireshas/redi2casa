@@ -23,7 +23,7 @@ Or install it yourself as:
 
 #### configuring cassandra  
 
-    install cassandra 20x
+    install cassandra 20x (follow this gist: https://gist.github.com/vireshas/7462447)
     from the cloned location execute:
     cqlsh -f cqlsh_cmds --debug
     cassandra-cli -k redi2casa -f cassandra_cli_cmds
