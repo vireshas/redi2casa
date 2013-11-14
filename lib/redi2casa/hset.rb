@@ -1,6 +1,5 @@
 class Redi2casa
   def hset namespace, key, value
-    hash = {key.to_s => value.to_s}
-    @db_conn.execute("UPDATE sets SET key = key + ? WHERE namespace = ?", hash, namespace)
+    @db_conn.execute("UPDATE hashes SET key = key + {'#{key}' : '#{value}'} WHERE namespace = '#{namespace}'")
   end
 end
