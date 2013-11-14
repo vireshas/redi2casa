@@ -1,6 +1,8 @@
-# Redi2casa
+# Redi2casa <a href="http://badge.fury.io/rb/redi2casa"><img src="https://badge.fury.io/rb/redi2casa@2x.png" alt="Gem Version" height="18"></a>  
+  
 
-Redis datastructures using Cassandra
+Redis datastructures using Cassandra. 
+
 
 ## Installation
 
@@ -19,10 +21,11 @@ Or install it yourself as:
 
 ## Usage
 
+###### You need to install cassandra-2.0.x (please follow these instructions, https://gist.github.com/vireshas/7462447)
+
 #### configuring cassandra  
 
-    install cassandra 20x
-    from the cloned location execute:
+    From the cloned location execute:  
     cqlsh -f cqlsh_cmds --debug
     cassandra-cli -k redi2casa -f cassandra_cli_cmds
     
