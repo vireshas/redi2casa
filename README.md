@@ -1,31 +1,31 @@
-# Redi2casa <a href="http://badge.fury.io/rb/redi2casa"><img src="https://badge.fury.io/rb/redi2casa@2x.png" alt="Gem Version" height="18"></a>  
-  
-Redis datastructures using Cassandra. 
+# Redi2casa <a href="http://badge.fury.io/rb/redi2casa"><img src="https://badge.fury.io/rb/redi2casa@2x.png" alt="Gem Version" height="18"></a>
+
+Redis datastructures using Cassandra.
 
 ## Installation
 
     $ gem install redi2casa
 
-#### Configuring cassandra  
+#### Configuring cassandra
 
 ###### You need to install cassandra-2.0.x (please follow these instructions, https://gist.github.com/vireshas/7462447)
 
-    From the cloned location execute:  
+    From the cloned location execute:
     cqlsh -f cqlsh_cmds --debug
     cassandra-cli -k redi2casa -f cassandra_cli_cmds
 
 ## Usage
 
     require "redi2casa"
-    r = Redi2casa.new ["localhost"], 'redi2casa'    
-    
+    r = Redi2casa.new ["localhost"], 'redi2casa'
+
     Available:  [hset, hget, hincrby, lpush, ltrim, lpop, lrange, rpush, rpop]
 
-    You should be passing an extra param(hash) when you call hget to retrieve a hash    
+    You should be passing an extra param(hash) when you call hget to retrieve a hash
     r.hset "a", "b", "hello_world"
-    r.hget "a", "b", "hash"  #the last parameter is needed at the moment  
-    
-  You can find more examples here: https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee  
+    r.hget "a", "b", "hash"  #the last parameter is needed at the moment
+
+  You can find more examples here: https://gist.github.com/vireshas/99bc322cf0ac42fbf7ee
 
 ## Contributing
 

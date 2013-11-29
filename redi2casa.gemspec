@@ -6,7 +6,7 @@ require 'redi2casa/version'
 Gem::Specification.new do |spec|
   spec.name          = "redi2casa"
   spec.version       = Redi2casa::VERSION
-  spec.authors       = ["vireshas"]
+  spec.authors       = ["vireshas", "rajofchennai"]
   spec.email         = ["asviresh@gmail.com"]
   spec.description   = %q{Providing Redis data-structures using Cassandra}
   spec.summary       = %q{Moving redis calls to equivalent cassandra calls can be a pain unless you use this gem}
