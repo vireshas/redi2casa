@@ -1,6 +1,6 @@
 r = Redi2casa.new([localhost], 'redi2casa')
 
-#### Do not mix counters and non-counter values in a single Hash
+### Do not mix counters and non-counter values in a single Hash
 
 Hash - counters
 ---------------
