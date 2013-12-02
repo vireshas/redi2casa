@@ -1,7 +1,6 @@
-
 r = Redi2casa.new([localhost], 'redi2casa')
 
-# Do not mix counters and non-counter values in a single Hash
+#### Do not mix counters and non-counter values in a single Hash
 
 Hash - counters
 ---------------
@@ -48,5 +47,5 @@ Key-value pairs
   
     r.setex "a", 10, "c"
     r.get "a" => "c"
-   ### after 10 seconds
+    ### after 10 seconds
     r.get "a" => nil
