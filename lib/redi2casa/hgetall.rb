@@ -1,11 +1,11 @@
 class Redi2casa
-  def hgetall key, type = "counters"
-    if type.to_s == "counters"
+  def hgetall key, type = "counter"
+    if type.to_s == "counter"
       response = @db_conn.execute("select * from counters where KEY='#{key}'")
       response.inject({}) {|hsh, entry| hsh[entry["column1"]] = entry["value"]; hsh}
     elsif type.to_s == "hash"
-      resp = @db_conn.execute("select key from hashes where namespace = '#{key}'")
-      parse_response(resp, "key")
+      response = @db_conn.execute("select * from hashes where key = '#{key}'")
+      response.inject({}) {|hsh, entry| hsh[entry["column1"]] = entry["value"]; hsh}
     end
   end
 end

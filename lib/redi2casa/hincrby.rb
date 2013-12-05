@@ -1,6 +1,5 @@
 class Redi2casa
-  def hincrby namespace, key, value = 1
-    query = "update counters set value = value + #{value} where key='#{namespace}' and column1 = '#{key}'"
-    @db_conn.execute(query)
+  def hincrby key, column1, value = 1
+    @db_conn.execute("update counters set value = value + #{value} where key='#{key}' and column1 = '#{column1}'")
   end
 end

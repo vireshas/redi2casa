@@ -1,11 +1,11 @@
 class Redi2casa
-  def hget namespace, key, type = "counters"
+  def hget key, column1, type = "counter"
     if type.to_s == "hash"
-      resp = @db_conn.execute("select key from hashes where namespace = '#{namespace}'")
-      parse_response(resp, "key")
-    elsif type.to_s == "counters"
-      resp = @db_conn.execute("select value from counters where KEY='#{namespace}' and column1 = '#{key}'")
+      resp = @db_conn.execute("select value from hashes where key = '#{key}' and column1 = '#{column1}'")
       parse_response(resp, "value")
+    elsif type.to_s == "counter"
+      resp = @db_conn.execute("select value from counters where KEY='#{key}' and column1 = '#{column1}'")
+      parse_response(resp, "value").to_i
     end
   end
 end
