@@ -1,12 +1,14 @@
 PATH
   remote: .
   specs:
-    redi2casa (0.0.3)
+    redi2casa (0.0.4)
+      bitwise
       cql-rb
 
 GEM
   remote: https://rubygems.org/
   specs:
+    bitwise (0.6.0)
     cql-rb (1.1.1)
     rake (10.1.0)
 

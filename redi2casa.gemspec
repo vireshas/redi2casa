@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "cql-rb"
+  spec.add_runtime_dependency "bitwise"
 
   spec.add_development_dependency "cql-rb"
   spec.add_development_dependency "bundler"
