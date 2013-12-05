@@ -1,6 +1,5 @@
 create keyspace redi2casa WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
 use redi2casa;
-create table hashes(namespace text primary key, key map<text, text>);
 create table lists(namespace text primary key, values list<text>);
 create table keyvalue(key text primary key, value text);
 create table sets(key text primary key, value set<text>);
