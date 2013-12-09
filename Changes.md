@@ -1,3 +1,19 @@
+0.0.6
+------
+
+- Support bitwise operations
+  [ get_bit, set_bit ] (alias getbit, setbit)
+- counter operations incrby
+
+0.0.5
+------
+
+- Hash rewrite and adding support for more operations
+  [ hlen, hkeys, hdel ]
+- Support for more set operations
+  [ scard, sismember]
+
+
 0.0.4
 -------
 
