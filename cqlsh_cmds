@@ -2,4 +2,4 @@ create keyspace redi2casa WITH replication = {'class': 'SimpleStrategy', 'replic
 use redi2casa;
 create table lists(namespace text primary key, values list<text>);
 create table keyvalue(key text primary key, value text);
-create table sets(key text primary key, value set<text>);
+create table sets(key text primary key, members set<text>);
