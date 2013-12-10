@@ -1,3 +1,11 @@
+0.0.7
+------
+
+- Rewrite bitwise operations to support clearbits
+  [clear_bits] (alias clearbits)
+- fix bugs in setbit
+- alias incrby to incr
+
 0.0.6
 ------
 
