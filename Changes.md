@@ -1,3 +1,7 @@
+0.0.9
+------
+- Fix bug in smembers which should return empty array instead of nil
+
 0.0.8
 ------
 
