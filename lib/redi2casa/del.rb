@@ -2,9 +2,9 @@ class Redi2casa
   ## Type can be sets, hashes, lists, keyvalue
   def del key, type
     if type == "counter"
-      @db_conn.execute("delete from counters where key = '#{key}'")
+      raise RuntimeError.new("deleting counters is not supported")
     elsif type == 'keyvalue'
-      @db_conn.execute("delete from keyvalues where key = '#{key}'")
+      @db_conn.execute("delete from keyvalue where key = '#{key}'")
     elsif type == 'hash'
       @db_conn.execute("delete from hashes where key = '#{key}'")
     elsif type == 'list'

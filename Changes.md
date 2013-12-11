@@ -1,3 +1,12 @@
+0.0.8
+------
+
+- Remove support for counter deletion. Refer to below links for reason
+  http://wiki.apache.org/cassandra/Counters
+  http://stackoverflow.com/questions/13653681/apache-cassandra-delete-from-counter
+
+- Fix typo in keyvalue deletion
+
 0.0.7
 ------
 
