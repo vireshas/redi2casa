@@ -1,3 +1,14 @@
+0.1.1
+-----
+
+- Support for zset operations
+  [ zadd, zrem, zrangebyscore, zscore]
+
+0.1.0
+------
+
+- Support for hmget
+
 0.0.9
 ------
 - Fix bug in smembers which should return empty array instead of nil

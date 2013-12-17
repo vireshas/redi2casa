@@ -3,3 +3,4 @@ use redi2casa;
 create table lists(namespace text primary key, values list<text>);
 create table keyvalue(key text primary key, value text);
 create table sets(key text primary key, members set<text>);
+create table sorted_sets(key text, score int, value text, random_text text, PRIMARY KEY (key, score, value, random_text));
