@@ -11,6 +11,8 @@ class Redi2casa
       @db_conn.execute("delete from lists where key = '#{key}'")
     elsif type == 'set'
       @db_conn.execute("delete from sets where key = '#{key}'")
+    elsif type == 'sorted_set'
+      @db_conn.execute("delete from sorted_sets where key = '#{key}'")
     end
   end
 end
