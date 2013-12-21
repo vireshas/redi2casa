@@ -1,6 +1,6 @@
 class Redi2casa
   def ltrim namespace, first, last
-    resp = @db_conn.execute("select values from lists where namespace='#{namespace}'")
+    resp = execute "select values from lists where namespace='#{namespace}'"
     values = {}
     resp.fetch {|entry| values = entry.to_hash["values"]}
     values_count = values.count
@@ -17,10 +17,10 @@ class Redi2casa
   end
 
   def lflush namespace
-    @db_conn.execute("UPDATE lists SET values = []  WHERE namespace = '#{namespace}'")
+    execute "UPDATE lists SET values = []  WHERE namespace = '#{namespace}'"
   end
 
   def lrepush namespace, list
-    @db_conn.execute("UPDATE lists SET values = [?]  WHERE namespace = '#{namespace}'", list)
+    execute "UPDATE lists SET values = [?]  WHERE namespace = '#{namespace}'", list
   end
 end

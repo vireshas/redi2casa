@@ -8,7 +8,7 @@ class Redi2casa
       raise RuntimeError.new("invalid table")
     end
 
-    resp = @db_conn.execute("select column1, value from #{table} where key = '#{key}' and column1 IN ('#{column1s.join("','")}')")
+    resp = execute "select column1, value from #{table} where key = '#{key}' and column1 IN ('#{column1s.join("','")}')"
     hash = {}
     resp.each do |r|
       hash[r["column1"]] = r["value"]
