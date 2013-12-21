@@ -3,7 +3,7 @@ class Redi2casa
   def lpop namespace
     resp = execute "select values from lists where namespace='#{namespace}'"
     values = []
-    resp.fetch {|entry| values = entry.to_hash["values"]}
+    resp.each {|entry| values = entry.to_hash["values"]}
     resp = values.shift
     lrepush(namespace, values)
     resp

@@ -8,7 +8,7 @@ class Redi2casa
     elsif type == 'hash'
       execute "delete from hashes where key = '#{key}'"
     elsif type == 'list'
-      execute "delete from lists where key = '#{key}'"
+      execute "delete from lists where namespace = '#{key}'"
     elsif type == 'set'
       execute "delete from sets where key = '#{key}'"
     elsif type == 'sorted_set'
