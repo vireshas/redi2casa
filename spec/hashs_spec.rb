@@ -4,11 +4,11 @@ describe Redi2casa do
   context "hashes" do
     KEY = "test_hash"
     before(:each) do
-      @r = Redi2casa.new(["localhost"], "redi2casa")
-      @r.del KEY, "hash"
+      $r ||= Redi2casa.new(["localhost"], "redi2casa")
+      $r.del KEY, "hash"
     end
     def r
-      @r
+      $r
     end
 
     context "hdel & hget" do

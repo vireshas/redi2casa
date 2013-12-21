@@ -1,7 +1,7 @@
 class Redi2casa
   def hdel key, column1, type = "counter"
     if type == "counter"
-      execute "delete from counters where key = '#{key}' and column1 = '#{column1}'"
+      raise RuntimeError.new("deleting counters is not supported")
     elsif type == "hash"
       execute "delete from hashes where key = '#{key}' and column1 = '#{column1}'"
     end

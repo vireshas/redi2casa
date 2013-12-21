@@ -4,12 +4,12 @@ describe Redi2casa do
   context "sets" do
     KEY = "test_set"
     before(:each) do
-      @r = Redi2casa.new(["localhost"], "redi2casa")
-      @r.del(KEY, "set")
+      $r ||= Redi2casa.new(["localhost"], "redi2casa")
+      $r.del(KEY, "set")
     end
 
     def r
-      @r
+      $r
     end
 
     context "sadd" do

@@ -4,12 +4,12 @@ describe Redi2casa do
   context "lists" do
     KEY = "test_list"
     before(:each) do
-      @r = Redi2casa.new(["localhost"], "redi2casa")
-      @r.del(KEY, "list")
+      $r ||= Redi2casa.new(["localhost"], "redi2casa")
+      $r.del(KEY, "list")
     end
 
     def r
-      @r
+      $r
     end
 
     context "lpop" do
