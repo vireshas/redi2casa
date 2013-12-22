@@ -1,8 +1,8 @@
 class Redi2casa
   def ltrim namespace, first, last
-    resp = @db_conn.execute("select values from lists where namespace='#{namespace}'")
+    resp = execute "select values from lists where namespace='#{namespace}'"
     values = {}
-    resp.fetch {|entry| values = entry.to_hash["values"]}
+    resp.each {|entry| values = entry.to_hash["values"]}
     values_count = values.count
     #if first is greater than list length, redis returns empty list
     #if negative value of last is equal or greater than list length a similar behaviour is shown
@@ -17,10 +17,11 @@ class Redi2casa
   end
 
   def lflush namespace
-    @db_conn.execute("UPDATE lists SET values = []  WHERE namespace = '#{namespace}'")
+    execute "UPDATE lists SET values = []  WHERE namespace = '#{namespace}'"
   end
 
+  private
   def lrepush namespace, list
-    @db_conn.execute("UPDATE lists SET values = [?]  WHERE namespace = '#{namespace}'", list)
+    execute "UPDATE lists SET values = ['#{list.join("','")}']  WHERE namespace = '#{namespace}'"
   end
 end
