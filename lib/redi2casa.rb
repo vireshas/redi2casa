@@ -29,7 +29,12 @@ class Redi2casa
     @failed += 1
     retry if @failed < 3
     raise
+  rescue Cql::QueryError
+    raise Redi2casaError.new("Cql::QueryError query:#{query}")
   ensure
     @failed = 0
   end
+end
+
+class Redi2casaError < RuntimeError
 end
