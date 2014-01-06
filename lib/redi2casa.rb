@@ -24,7 +24,7 @@ class Redi2casa
   def execute query
     @failed ||= 0
     @db_conn.execute query
-  rescue Cql::NotConnectedError
+  rescue Cql::NotConnectedError, Cql::Io::ConnectionError, Cql::Io::ConnectionTimeoutError
     reconnect
     @failed += 1
     retry if @failed < 3
