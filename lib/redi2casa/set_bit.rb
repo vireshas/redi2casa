@@ -4,7 +4,7 @@ class Redi2casa
     if !(bit != 0 || bit != 1)
       raise RuntimeError.new("Invalid bit")
     end
-    hset("#{key}","#{offset}", bit)
+    hset("#{key}","#{offset}", bit.to_s)
   end
   alias :setbit :set_bit
 end
