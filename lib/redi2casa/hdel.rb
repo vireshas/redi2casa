@@ -3,7 +3,7 @@ class Redi2casa
     if type == "counter"
       raise RuntimeError.new("deleting counters is not supported")
     elsif type == "hash"
-      execute "delete from hashes where key = '#{key}' and column1 = '#{column1}'"
+      execute("delete from hashes where key = ? and column1 = ?", key, column1)
     end
   end
 end

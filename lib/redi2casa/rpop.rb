@@ -1,6 +1,6 @@
 class Redi2casa
   def rpop namespace
-    resp = execute "select values from lists where namespace='#{namespace}'"
+    resp = execute("select values from lists where namespace = ?", namespace)
     values = []
     resp.fetch {|entry| values = entry.to_hash["values"]}
     resp = values.pop

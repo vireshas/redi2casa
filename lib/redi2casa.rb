@@ -21,16 +21,17 @@ class Redi2casa
     resp.map {|entry| entry[key].to_s }.first
   end
 
-  def execute query
+  def execute base_query, *args
     @failed ||= 0
-    @db_conn.execute query
+    statement = @db_conn.prepare(base_query)
+    statement.execute(*args)
   rescue Cql::NotConnectedError, Cql::Io::ConnectionError, Cql::Io::ConnectionTimeoutError
     reconnect
     @failed += 1
     retry if @failed < 3
     raise
   rescue Cql::QueryError
-    raise Redi2casaError.new("Cql::QueryError query:#{query}")
+    raise Redi2casaError.new("Cql::QueryError query:#{base_query}, args: #{args.inspect}")
   ensure
     @failed = 0
   end
