@@ -1,6 +1,6 @@
 class Redi2casa
   def ltrim namespace, first, last
-    resp = execute("select values from lists where namespace = ?", namespace)
+    resp = execute("select values from lists where namespace = ?", namespace.to_s)
     values = {}
     resp.each {|entry| values = entry.to_hash["values"]}
     values_count = values.count
@@ -17,11 +17,11 @@ class Redi2casa
   end
 
   def lflush namespace
-    execute("UPDATE lists SET values = []  WHERE namespace = ?", namespace)
+    execute("UPDATE lists SET values = []  WHERE namespace = ?", namespace.to_s)
   end
 
   private
   def lrepush namespace, list
-    execute("UPDATE lists SET values = ?  WHERE namespace = ?", list, namespace)
+    execute("UPDATE lists SET values = ?  WHERE namespace = ?", list, namespace.to_s)
   end
 end
