@@ -1,5 +1,7 @@
 class Redi2casa
   def hmget key, type, *column1s
+    column1s.flatten!
+    column1s.collect! { |column1|  column1.to_s }
     if type == "counter"
       table = "counters"
     elsif type == "hash"
