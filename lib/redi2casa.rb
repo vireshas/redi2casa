@@ -31,6 +31,11 @@ class Redi2casa
     retry if @failed < 3
     raise
   rescue Cql::QueryError => e
+    if e.message =~  /Operation timed out/i
+      @failed += 1
+      retry if @failed < 3
+      raise
+    end
     raise Redi2casaError.new("Cql::QueryError query:#{base_query}, args: #{args.inspect}, exception: #{e.inspect}")
   ensure
     @failed = 0
