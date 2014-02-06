@@ -30,8 +30,8 @@ class Redi2casa
     @failed += 1
     retry if @failed < 3
     raise
-  rescue Cql::QueryError
-    raise Redi2casaError.new("Cql::QueryError query:#{base_query}, args: #{args.inspect}")
+  rescue Cql::QueryError => e
+    raise Redi2casaError.new("Cql::QueryError query:#{base_query}, args: #{args.inspect}, exception: #{e.inspect}")
   ensure
     @failed = 0
   end
