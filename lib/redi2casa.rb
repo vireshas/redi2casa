@@ -37,6 +37,13 @@ class Redi2casa
       raise
     end
     raise Redi2casaError.new("Cql::QueryError query:#{base_query}, args: #{args.inspect}, exception: #{e.inspect}")
+  rescue ThreadError => e
+    if e.message =~ /Attempt to unlock a mutex/i
+      @failed += 1
+      retry if @failed < 3
+      raise
+    end
+    raise
   ensure
     @failed = 0
   end
