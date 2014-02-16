@@ -4,8 +4,12 @@ class Redi2casa
     resp = execute("select values from lists where namespace = ?", namespace.to_s)
     values = []
     resp.each {|entry| values = entry.to_hash["values"]}
-    resp = values.shift
-    lrepush(namespace, values)
+    if values
+      resp = values.shift
+      lrepush(namespace, values)
+    else
+      resp = values
+    end
     resp
   end
 end
